@@ -24,5 +24,9 @@
   "homepage": "https://github.com/emilybache/GildedRose-Refactoring-Kata",
   "devDependencies": {
     "jest": "^24.9.0"
+  },
+  "dependencies": {
+    "check-node-version": "^4.1.0",
+    "npm-run-path": "^2.0.2"
   }
 }

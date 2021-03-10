@@ -1,3 +1,4 @@
+// do not alter the item class 
 class Item {
   constructor(name, sellIn, quality){
     this.name = name;
@@ -64,4 +65,9 @@ class Shop {
 module.exports = {
   Item,
   Shop
-}
+};
+
+// export default {
+//   Item,
+//   Shop
+// };
