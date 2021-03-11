@@ -82,11 +82,11 @@ describe("Gilded Rose", function() {
       expect(items[0].quality).toBe(23);
     })
 
-    // it('should have a quality of 0 when sellIn < 0', function(){
-    //   const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20)])
-    //   const items = gildedRose.updateShop();
-    //   expect(items[0].quality).toBe(0);
-    // })
+    it('should have a quality of 0 when sellIn < 0', function(){
+      const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20)])
+      const items = gildedRose.updateShop();
+      expect(items[0].quality).toBe(0);
+    })
 
   //   it('should ahve a max quality of 50, unless legendary', function(){
   //     const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 2, 50)])
