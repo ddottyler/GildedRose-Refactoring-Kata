@@ -88,26 +88,26 @@ describe("Gilded Rose", function() {
       expect(items[0].quality).toBe(0);
     })
 
-  //   it('should ahve a max quality of 50, unless legendary', function(){
-  //     const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 2, 50)])
-  //     const items = gildedRose.updateShop();
-  //     expect(items[0].quality).toBe(50);
-  //   })
+    it('should have a max quality of 50, unless legendary', function(){
+      const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 2, 48)])
+      const items = gildedRose.updateShop();
+      expect(items[0].quality).toBe(50);
+    })
 
   })
   
-  // describe('legendary items', function(){
+  describe('legendary items', function(){
     
-  //   const gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 0, 80)])
-  //   const items = gildedRose.updateQuality();
+    const gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 0, 80)])
+    const items = gildedRose.updateShop();
 
-  //   it('should not reduce the sellIn', function(){
-  //     expect(items[0].sellIn).toBe(0);
-  //   })
+    it('should not reduce the sellIn', function(){
+      expect(items[0].sellIn).toBe(0);
+    })
     
-  //   it('should not reduce the quality', function(){
-  //     expect(items[0].quality).toBe(80);
-  //   })
-  // })
+    it('should not reduce the quality', function(){
+      expect(items[0].quality).toBe(80);
+    })
+  })
   
 });

@@ -15,12 +15,16 @@ class Shop {
   updateShop() {
     for(let i = 0; i < this.items.length; i++){
 
+    if(this.items[i].name == "Sulfuras, Hand of Ragnaros") {
+    } else {
       this.updateSellIn(this.items[i]);
+    }
 
     if(this.items[i].name == "Aged Brie") {
       this.updateBrieQuality(this.items[i])
     } else if(this.items[i].name == "Backstage passes to a TAFKAL80ETC concert"){
       this.updateBackstageQuality(this.items[i])
+    } else if(this.items[i].name == "Sulfuras, Hand of Ragnaros"){
     } else {
       this.updateQuality(this.items[i])
       }
@@ -59,6 +63,9 @@ class Shop {
       item.quality = item.quality + 2
     } else {
       item.quality = item.quality + 1
+    }
+    if (item.quality >= 50) {
+      item.quality = 50
     }
   }
 
