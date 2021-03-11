@@ -36,12 +36,12 @@ describe("Gilded Rose", function() {
       expect(items[0].quality).toBe(19);
     })
 
-  //   it('should degrade in quality twice as fast when sellIn < 0', function(){
-  //     const gildedRose = new Shop([new Item('+5 Dexterity Vest', 0, 2)]);
-  //     const items = gildedRose.updateQuality();
-  //     expect(items[0].sellIn).toBe(-1);
-  //     expect(items[0].quality).toBe(0);
-  //   })
+    it('should degrade in quality twice as fast when sellIn < 0', function(){
+      const gildedRose = new Shop([new Item('+5 Dexterity Vest', 0, 2)]);
+      const items = gildedRose.updateShop();
+      expect(items[0].sellIn).toBe(-1);
+      expect(items[0].quality).toBe(0);
+    })
     
   })
   

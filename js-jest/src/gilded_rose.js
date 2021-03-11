@@ -22,9 +22,11 @@ class Shop {
 
   updateQuality(item) {
     if(item.quality == 0) {
-    }
-    else {item.quality = item.quality - 1
-    }
+    } else if (item.sellIn < 0) {
+      item.quality = item.quality - 2
+    } else {
+      item.quality = item.quality - 1
+    } 
     return item
   }
 
