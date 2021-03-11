@@ -1,53 +1,113 @@
 const {Shop, Item} = require("../src/gilded_rose");
 
 describe("Gilded Rose", function() {
-  
-  it("should create an item called foo", function() {
+
+  // describe('item', function(){
+  //   it('should never have more than 50 for quality', function(){
+  //     expect(new Item("sock", 5, 51)).toEqual("Item quality is too high. Try again.")
+  //   })
+  // })
+    
+  describe('applies to all', function(){
+
     const gildedRose = new Shop([new Item("foo", 0, 0)]);
     const items = gildedRose.updateQuality();
-    expect(items[0].name).toBe("foo");
-  });
 
+    it('should not let an items quality drop below 0', function(){
+      expect(items[0].quality).toBe(0);
+    })
+
+    it("should create an item called foo", function() {
+      expect(items[0].name).toBe("foo");
+    });
+
+    it('should reduce sellIn by 1 for all but legendary items', function(){
+      expect(items[0].sellIn).toBe(-1);
+    })
+
+  })
+  
   describe('normal items', function(){
-    
-    it('should update a normal item', function(){
-      const gildedRose = new Shop([new Item('+5 Dexterity Vest', 10, 20)]);
-      const items = gildedRose.updateQuality();
-      expect(items[0].sellIn).toBe(9);
+
+    const gildedRose = new Shop([new Item('+5 Dexterity Vest', 10, 20)]);
+    const items = gildedRose.updateQuality();
+
+    it('should reduce the quality by 1', function(){
       expect(items[0].quality).toBe(19);
     })
 
+    it('should degrade in quality twice as fast when sellIn < 0', function(){
+      const gildedRose = new Shop([new Item('+5 Dexterity Vest', 0, 2)]);
+      const items = gildedRose.updateQuality();
+      expect(items[0].sellIn).toBe(-1);
+      expect(items[0].quality).toBe(0);
+    })
+    
   })
-
+  
   describe('aged brie', function(){
 
-    it('should update aged brief correctly', function(){
-      const gildedRose = new Shop([new Item('Aged Brie', 2, 0)])
-      const items = gildedRose.updateQuality();
-      expect(items[0].sellIn).toBe(1);
+    const gildedRose = new Shop([new Item('Aged Brie', 2, 0)])
+    const items = gildedRose.updateQuality();
+
+    it('should increase aged brie quality with age', function(){
       expect(items[0].quality).toBe(1);
     })
 
+    it('should ahve a max quality of 50, unless legendary', function(){
+      const gildedRose = new Shop([new Item('Aged Brie', 2, 50)])
+      const items = gildedRose.updateQuality();
+      expect(items[0].quality).toBe(50);
+    })
+    
   })
-
+  
   describe('backstage passes', function(){
-    it('should update backstage passes correctly', function(){
+
+    it('should increase quality by 1 when 10 days or more left for sellIn', function(){
       const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20)])
       const items = gildedRose.updateQuality();
-      expect(items[0].sellIn).toBe(14);
       expect(items[0].quality).toBe(21);
     })
+
+    it('should increase quality by 2 when 10 days or less left for sellIn', function(){
+      const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 10, 20)])
+      const items = gildedRose.updateQuality();
+      expect(items[0].quality).toBe(22);
+    })
+
+    it('should increase quality by 3 when 5 days or less left for sellIn', function(){
+      const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 5, 20)])
+      const items = gildedRose.updateQuality();
+      expect(items[0].quality).toBe(23);
+    })
+
+    it('should have a quality of 0 when sellIn < 0', function(){
+      const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 0, 20)])
+      const items = gildedRose.updateQuality();
+      expect(items[0].quality).toBe(0);
+    })
+
+    it('should ahve a max quality of 50, unless legendary', function(){
+      const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 2, 50)])
+      const items = gildedRose.updateQuality();
+      expect(items[0].quality).toBe(50);
+    })
+
   })
   
   describe('legendary items', function(){
     
-      it('should update legendary items correctly', function(){
-        const gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 0, 80)])
-        const items = gildedRose.updateQuality();
-        expect(items[0].sellIn).toBe(0);
-        expect(items[0].quality).toBe(80);
-      })
-    
-  })
+    const gildedRose = new Shop([new Item('Sulfuras, Hand of Ragnaros', 0, 80)])
+    const items = gildedRose.updateQuality();
 
+    it('should not reduce the sellIn', function(){
+      expect(items[0].sellIn).toBe(0);
+    })
+    
+    it('should not reduce the quality', function(){
+      expect(items[0].quality).toBe(80);
+    })
+  })
+  
 });
