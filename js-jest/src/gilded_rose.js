@@ -14,14 +14,23 @@ class Shop {
   
   updateShop() {
     for(let i = 0; i < this.items.length; i++){
-      this.items[i].sellIn = this.items[i].sellIn - 1;
+
+      this.updateSellIn(this.items[i]);
+
     if(this.items[i].name == "Aged Brie") {
       this.updateBrieQuality(this.items[i])
+    } else if(this.items[i].name == "Backstage passes to a TAFKAL80ETC concert"){
+      this.updateBackstageQuality(this.items[i])
     } else {
       this.updateQuality(this.items[i])
       }
     };
+
     return this.items
+  }
+
+  updateSellIn(item){
+    item.sellIn = item.sellIn - 1
   }
 
   updateQuality(item) {
@@ -39,6 +48,10 @@ class Shop {
     } else {
       item.quality = item.quality + 1
     }
+  }
+
+  updateBackstageQuality(item){
+    item.quality = item.quality + 1
   }
 
 }

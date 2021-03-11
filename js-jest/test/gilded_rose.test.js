@@ -62,13 +62,13 @@ describe("Gilded Rose", function() {
     
   })
   
-  // describe('backstage passes', function(){
+  describe('backstage passes', function(){
 
-  //   it('should increase quality by 1 when 10 days or more left for sellIn', function(){
-  //     const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20)])
-  //     const items = gildedRose.updateQuality();
-  //     expect(items[0].quality).toBe(21);
-  //   })
+    it('should increase quality by 1 when 10 days or more left for sellIn', function(){
+      const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 15, 20)])
+      const items = gildedRose.updateShop();
+      expect(items[0].quality).toBe(21);
+    })
 
   //   it('should increase quality by 2 when 10 days or less left for sellIn', function(){
   //     const gildedRose = new Shop([new Item('Backstage passes to a TAFKAL80ETC concert', 10, 20)])
@@ -94,7 +94,7 @@ describe("Gilded Rose", function() {
   //     expect(items[0].quality).toBe(50);
   //   })
 
-  // })
+  })
   
   // describe('legendary items', function(){
     
