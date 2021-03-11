@@ -35,7 +35,10 @@ class Shop {
   }
 
   updateBrieQuality(item){
-    item.quality = item.quality + 1
+    if(item.quality == 50){
+    } else {
+      item.quality = item.quality + 1
+    }
   }
 
 }

@@ -54,11 +54,11 @@ describe("Gilded Rose", function() {
       expect(items[0].quality).toBe(1);
     })
 
-  //   it('should ahve a max quality of 50, unless legendary', function(){
-  //     const gildedRose = new Shop([new Item('Aged Brie', 2, 50)])
-  //     const items = gildedRose.updateQuality();
-  //     expect(items[0].quality).toBe(50);
-  //   })
+    it('should have a max quality of 50, unless legendary', function(){
+      const gildedRose = new Shop([new Item('Aged Brie', 2, 50)])
+      const items = gildedRose.updateShop();
+      expect(items[0].quality).toBe(50);
+    })
     
   })
   
