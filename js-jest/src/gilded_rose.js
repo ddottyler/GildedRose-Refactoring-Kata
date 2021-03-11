@@ -15,8 +15,17 @@ class Shop {
   updateShop() {
     for(let i = 0; i < this.items.length; i++){
       this.items[i].sellIn = this.items[i].sellIn - 1
+      this.updateQuality(this.items[i])
     }
     return this.items
+  }
+
+  updateQuality(item) {
+    if(item.quality == 0) {
+    }
+    else {item.quality = item.quality - 1
+    }
+    return item
   }
 
 }

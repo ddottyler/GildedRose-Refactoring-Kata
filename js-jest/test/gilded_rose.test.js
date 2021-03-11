@@ -27,14 +27,14 @@ describe("Gilded Rose", function() {
 
   })
   
-  // describe('normal items', function(){
+  describe('normal items', function(){
 
-  //   const gildedRose = new Shop([new Item('+5 Dexterity Vest', 10, 20)]);
-  //   const items = gildedRose.updateQuality();
+    const gildedRose = new Shop([new Item('+5 Dexterity Vest', 10, 20)]);
+    const items = gildedRose.updateShop();
 
-  //   it('should reduce the quality by 1', function(){
-  //     expect(items[0].quality).toBe(19);
-  //   })
+    it('should reduce the quality by 1', function(){
+      expect(items[0].quality).toBe(19);
+    })
 
   //   it('should degrade in quality twice as fast when sellIn < 0', function(){
   //     const gildedRose = new Shop([new Item('+5 Dexterity Vest', 0, 2)]);
@@ -43,7 +43,7 @@ describe("Gilded Rose", function() {
   //     expect(items[0].quality).toBe(0);
   //   })
     
-  // })
+  })
   
   // describe('aged brie', function(){
 
