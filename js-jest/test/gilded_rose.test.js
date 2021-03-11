@@ -45,14 +45,14 @@ describe("Gilded Rose", function() {
     
   })
   
-  // describe('aged brie', function(){
+  describe('aged brie', function(){
 
-  //   const gildedRose = new Shop([new Item('Aged Brie', 2, 0)])
-  //   const items = gildedRose.updateQuality();
+    const gildedRose = new Shop([new Item('Aged Brie', 2, 0)])
+    const items = gildedRose.updateShop();
 
-  //   it('should increase aged brie quality with age', function(){
-  //     expect(items[0].quality).toBe(1);
-  //   })
+    it('should increase aged brie quality with age', function(){
+      expect(items[0].quality).toBe(1);
+    })
 
   //   it('should ahve a max quality of 50, unless legendary', function(){
   //     const gildedRose = new Shop([new Item('Aged Brie', 2, 50)])
@@ -60,7 +60,7 @@ describe("Gilded Rose", function() {
   //     expect(items[0].quality).toBe(50);
   //   })
     
-  // })
+  })
   
   // describe('backstage passes', function(){
 

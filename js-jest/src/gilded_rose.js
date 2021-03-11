@@ -14,9 +14,13 @@ class Shop {
   
   updateShop() {
     for(let i = 0; i < this.items.length; i++){
-      this.items[i].sellIn = this.items[i].sellIn - 1
+      this.items[i].sellIn = this.items[i].sellIn - 1;
+    if(this.items[i].name == "Aged Brie") {
+      this.updateBrieQuality(this.items[i])
+    } else {
       this.updateQuality(this.items[i])
-    }
+      }
+    };
     return this.items
   }
 
@@ -28,6 +32,10 @@ class Shop {
       item.quality = item.quality - 1
     } 
     return item
+  }
+
+  updateBrieQuality(item){
+    item.quality = item.quality + 1
   }
 
 }
