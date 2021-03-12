@@ -109,5 +109,20 @@ describe("Gilded Rose", function() {
       expect(items[0].quality).toBe(80);
     })
   })
+
+  describe('conjured items', function(){
+
+    it('should degrade in quality twice as fast as other items', function(){
+    const gildedRose = new Shop([new Item('Conjured', 5, 10)]);
+    const items = gildedRose.updateShop();
+      expect(items[0].quality).toBe(8);
+    })
+
+    // it('should degrade in quality twice as fast one sellin < 0', function(){
+    // const gildedRose = new Shop([new Item('Conjured', 0, 4)]);
+    // const items = gildedRose.updateShop();
+    //   expect(items[0].quality).toBe(0);
+    // })
+  })
   
 });

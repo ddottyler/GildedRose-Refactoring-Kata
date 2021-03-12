@@ -21,12 +21,14 @@ class Shop {
     }
 
     if(this.items[i].name == "Aged Brie") {
-      this.updateBrieQuality(this.items[i])
+      this.updateBrieQuality(this.items[i]);
     } else if(this.items[i].name == "Backstage passes to a TAFKAL80ETC concert"){
-      this.updateBackstageQuality(this.items[i])
+      this.updateBackstageQuality(this.items[i]);
     } else if(this.items[i].name == "Sulfuras, Hand of Ragnaros"){
+    } else if(this.items[i].name == "Conjured"){
+      this.updateConjuredQuality(this.items[i]);
     } else {
-      this.updateQuality(this.items[i])
+      this.updateQuality(this.items[i]);
       }
     };
 
@@ -67,6 +69,10 @@ class Shop {
     if (item.quality >= 50) {
       item.quality = 50
     }
+  }
+
+  updateConjuredQuality(item){
+    item.quality = item.quality - 2
   }
 
 }
