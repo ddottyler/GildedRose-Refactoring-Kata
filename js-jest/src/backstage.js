@@ -14,11 +14,12 @@ class Backstage {
     } else {
       this.increaseQuality(item, 1);
     }
-    if (item.quality >= 50) {
-      item.quality = 50;
-    }
+    this.qualityCheck(item)
   }
 
+  qualityCheck(item){
+    item.quality >= 50 ? item.quality = 50 : item.quality;
+  }
   increaseQuality(item, num) {
     item.quality += num;
   }
