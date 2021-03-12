@@ -12,7 +12,7 @@ class Brie {
   }
 
   increaseQuality(item, num) {
-    item.quality = item.quality + num;
+    item.quality += num;
   }
 
 }

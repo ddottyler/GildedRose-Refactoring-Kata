@@ -25,7 +25,7 @@ class Shop {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name == 'Sulfuras, Hand of Ragnaros') {
       } else {
-        this.items[i].sellIn = this.items[i].sellIn - 1;
+        this.items[i].sellIn -= 1;
       }
     }
   }
@@ -56,12 +56,9 @@ class Shop {
   }
 
   reduceQuality(item, num) {
-    item.quality = item.quality - num;
+    item.quality -= num;
   }
 
-  increaseQuality(item, num) {
-    item.quality = item.quality + num;
-  }
 }
 
 module.exports = {

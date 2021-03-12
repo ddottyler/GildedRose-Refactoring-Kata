@@ -16,11 +16,7 @@ class Conjured {
   }
 
   reduceQuality(item, num) {
-    item.quality = item.quality - num;
-  }
-
-  increaseQuality(item, num) {
-    item.quality = item.quality + num;
+    item.quality -= num;
   }
 
 }
