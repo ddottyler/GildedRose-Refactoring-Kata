@@ -6,6 +6,22 @@ class Item {
   }
 }
 
+class Brie {
+
+  constructor(item) {
+    this.updateBrie = this.updateBrieQuality(item)
+  }
+
+  updateBrieQuality(item) {
+    if (item.quality == 50) {
+    } else {
+      item.quality = item.quality + 1;
+    }
+  }
+}
+
+class 
+
 class Shop {
   constructor(items=[]) {
     this.items = items;
@@ -31,7 +47,7 @@ class Shop {
       if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
         this.updateBackstageQuality(this.items[i]);
       } else if (this.items[i].name == 'Aged Brie') {
-        this.updateBrieQuality(this.items[i]);
+        new Brie(this.items[i]);
       } else if (this.items[i].name == 'Sulfuras, Hand of Ragnaros') {
       } else if (this.items[i].name == 'Conjured Mana Cake') {
         this.updateConjuredQuality(this.items[i]);
@@ -96,4 +112,5 @@ class Shop {
 module.exports = {
   Item,
   Shop,
+  Brie,
 };
