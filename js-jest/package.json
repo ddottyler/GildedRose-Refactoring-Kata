@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/emilybache/GildedRose-Refactoring-Kata",
   "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-google": "^0.14.0",
     "jest": "^24.9.0"
   },
   "dependencies": {
