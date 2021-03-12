@@ -1,4 +1,5 @@
 const {Shop, Item} = require('../src/gilded_rose');
+const {Backstage} = require('../src/backstage');
 
 describe('Gilded Rose', function() {
   describe('applies to all', function() {

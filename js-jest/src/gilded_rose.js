@@ -1,3 +1,7 @@
+const {Brie} = require('./brie');
+const {Backstage} = require('./backstage');
+const {Conjured} = require('./conjured');
+
 class Item {
   constructor(name, sellIn, quality) {
     this.name = name;
@@ -5,22 +9,6 @@ class Item {
     this.quality = quality;
   }
 }
-
-class Brie {
-
-  constructor(item) {
-    this.updateBrie = this.updateBrieQuality(item)
-  }
-
-  updateBrieQuality(item) {
-    if (item.quality == 50) {
-    } else {
-      item.quality = item.quality + 1;
-    }
-  }
-}
-
-class 
 
 class Shop {
   constructor(items=[]) {
@@ -45,12 +33,12 @@ class Shop {
   updateQualityByName() {
     for (let i = 0; i < this.items.length; i++) {
       if (this.items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
-        this.updateBackstageQuality(this.items[i]);
+        new Backstage(this.items[i]);
       } else if (this.items[i].name == 'Aged Brie') {
         new Brie(this.items[i]);
       } else if (this.items[i].name == 'Sulfuras, Hand of Ragnaros') {
       } else if (this.items[i].name == 'Conjured Mana Cake') {
-        this.updateConjuredQuality(this.items[i]);
+        new Conjured(this.items[i]);
       } else {
         this.updateQuality(this.items[i]);
       }
@@ -67,39 +55,6 @@ class Shop {
     return item;
   }
 
-  updateBrieQuality(item) {
-    if (item.quality == 50) {
-    } else {
-      this.increaseQuality(item, 1);
-    }
-  }
-
-  updateBackstageQuality(item) {
-    if (item.sellIn < 0) {
-      item.quality = 0;
-    } else if (item.sellIn <= 5) {
-      this.increaseQuality(item, 3);
-    } else if (item.sellIn <= 10) {
-      this.increaseQuality(item, 2);
-    } else {
-      this.increaseQuality(item, 1);
-    }
-    if (item.quality >= 50) {
-      item.quality = 50;
-    }
-  }
-
-  updateConjuredQuality(item) {
-    if (item.sellIn < 0) {
-      this.reduceQuality(item, 4);
-    } else {
-      this.reduceQuality(item, 2);
-    }
-    if (item.quality < 0) {
-      item.quality = 0;
-    }
-  }
-
   reduceQuality(item, num) {
     item.quality = item.quality - num;
   }
@@ -112,5 +67,4 @@ class Shop {
 module.exports = {
   Item,
   Shop,
-  Brie,
 };
