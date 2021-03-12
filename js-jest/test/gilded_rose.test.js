@@ -113,16 +113,22 @@ describe("Gilded Rose", function() {
   describe('conjured items', function(){
 
     it('should degrade in quality twice as fast as other items', function(){
-    const gildedRose = new Shop([new Item('Conjured', 5, 10)]);
+    const gildedRose = new Shop([new Item('Conjured Mana Cake', 5, 10)]);
     const items = gildedRose.updateShop();
       expect(items[0].quality).toBe(8);
     })
 
-    // it('should degrade in quality twice as fast one sellin < 0', function(){
-    // const gildedRose = new Shop([new Item('Conjured', 0, 4)]);
-    // const items = gildedRose.updateShop();
-    //   expect(items[0].quality).toBe(0);
-    // })
+    it('should degrade in quality twice as fast one sellin < 0', function(){
+    const gildedRose = new Shop([new Item('Conjured Mana Cake', 0, 4)]);
+    const items = gildedRose.updateShop();
+      expect(items[0].quality).toBe(0);
+    })
+
+    it('should stop conjured quality going below 0', function(){
+      const gildedRose = new Shop([new Item('Conjured Mana Cake', 0, 2)]);
+      const items = gildedRose.updateShop();
+        expect(items[0].quality).toBe(0);
+    })
   })
   
 });

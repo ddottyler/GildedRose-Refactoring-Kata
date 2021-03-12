@@ -25,7 +25,7 @@ class Shop {
     } else if(this.items[i].name == "Backstage passes to a TAFKAL80ETC concert"){
       this.updateBackstageQuality(this.items[i]);
     } else if(this.items[i].name == "Sulfuras, Hand of Ragnaros"){
-    } else if(this.items[i].name == "Conjured"){
+    } else if(this.items[i].name == "Conjured Mana Cake"){
       this.updateConjuredQuality(this.items[i]);
     } else {
       this.updateQuality(this.items[i]);
@@ -40,7 +40,7 @@ class Shop {
   }
 
   updateQuality(item) {
-    if(item.quality == 0) {
+    if (item.quality == 0) {
     } else if (item.sellIn < 0) {
       item.quality = item.quality - 2
     } else {
@@ -72,7 +72,14 @@ class Shop {
   }
 
   updateConjuredQuality(item){
-    item.quality = item.quality - 2
+    if (item.sellIn < 0) {
+      item.quality = item.quality - 4
+    } else {
+      item.quality = item.quality - 2
+    }
+    if (item.quality < 0) {
+      item.quality = 0
+    }
   }
 
 }
