@@ -1,7 +1,6 @@
 class Conjured {
-
   constructor(item) {
-    this.updateConjured = this.updateConjuredQuality(item)
+    this.updateConjured = this.updateConjuredQuality(item);
   }
 
   updateConjuredQuality(item) {
@@ -18,7 +17,6 @@ class Conjured {
   reduceQuality(item, num) {
     item.quality -= num;
   }
-
 }
 
 module.exports = {

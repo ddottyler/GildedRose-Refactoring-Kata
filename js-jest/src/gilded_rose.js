@@ -45,7 +45,6 @@ class Shop {
       }
     };
   }
-
 }
 
 module.exports = {

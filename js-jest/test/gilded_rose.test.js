@@ -1,5 +1,4 @@
 const {Shop, Item} = require('../src/gilded_rose');
-const {Backstage} = require('../src/backstage');
 
 describe('Gilded Rose', function() {
   describe('applies to all', function() {
@@ -19,7 +18,7 @@ describe('Gilded Rose', function() {
     });
   });
 
-  describe('normal items', function() {
+  describe('other items', function() {
     const gildedRose = new Shop([new Item('+5 Dexterity Vest', 10, 20)]);
     const items = gildedRose.updateShop();
 

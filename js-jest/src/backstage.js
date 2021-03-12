@@ -1,7 +1,6 @@
 class Backstage {
-
   constructor(item) {
-    this.updateBackstage = this.updateBackstageQuality(item)
+    this.updateBackstage = this.updateBackstageQuality(item);
   }
 
   updateBackstageQuality(item) {
@@ -14,16 +13,17 @@ class Backstage {
     } else {
       this.increaseQuality(item, 1);
     }
-    this.qualityCheck(item)
+    this.qualityCheck(item);
   }
 
-  qualityCheck(item){
+  qualityCheck(item) {
     item.quality >= 50 ? item.quality = 50 : item.quality;
   }
+  
   increaseQuality(item, num) {
     item.quality += num;
   }
-  
+
 }
 
 module.exports = {
