@@ -66,6 +66,7 @@ eslint src/**
 
 **Code in Action - Output Examples**
 
+```sh
 -------- day 0 --------
 name, sellIn, quality
 +5 Dexterity Vest,
@@ -155,3 +156,4 @@ Backstage passes to a TAFKAL80ETC concert,
 Conjured Mana Cake,
 1,
 2
+```
