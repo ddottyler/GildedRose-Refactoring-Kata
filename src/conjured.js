@@ -1,16 +1,21 @@
+const MIN_SELL_IN = 0;
+const MIN_QUALITY = 0;
+const MAX_QUALITY_DECREASE = 4;
+const NORM_QUALITY_DECREASE = 2;
+
 class Conjured {
   constructor(item) {
     this.updateConjured = this.updateConjuredQuality(item);
   }
 
   updateConjuredQuality(item) {
-    if (item.sellIn < 0) {
-      this.reduceQuality(item, 4);
+    if (item.sellIn < MIN_SELL_IN) {
+      this.reduceQuality(item, MAX_QUALITY_DECREASE);
     } else {
-      this.reduceQuality(item, 2);
+      this.reduceQuality(item, NORM_QUALITY_DECREASE);
     }
-    if (item.quality < 0) {
-      item.quality = 0;
+    if (item.quality < MIN_QUALITY) {
+      item.quality = MIN_QUALITY;
     }
   }
 
